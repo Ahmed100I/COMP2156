@@ -1,20 +1,19 @@
 name: GitHub Actions Demo
-run-name: ${{ github.actor }} is testing out GitHub Actions  ~@
+run-name: ${{ github.actor }} is testing out GitHub Actions
 on: [push]
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
-      - run: echo " ~I The job was automatically triggered by a{{{{ github.even>
-      - run: echo " M-' This job is now running on {{${{ runner.}} }} server ho>
-      - run: echo " ~N The name of your branch is{{{{ github.re}}}} and your re>
+      - run: echo "The job was automatically triggered by a ${{ github.event_name }} event."
+      - run: echo "This job is now running on a ${{ runner.os }} server hosted by GitHub!"
+      - run: echo "The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
       - name: Check out repository code
         uses: actions/checkout@v4
-      - run: echo " M-! Th{{${{ github.reposito}} }} repository has been cloned>
-      - run: echo " M-%️ The workflow is now ready to test your code on the runne
+      - run: echo "The ${{ github.repository }} repository has been cloned to the runner."
+      - run: echo "The workflow is now ready to test your code on the runner."
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
-      - run: echo " ~O This job's status is{{{{ job.statu}}}}."
-
+      - run: echo "This job's status is ${{ job.status }}."
 
